@@ -11,13 +11,13 @@ var users = require('./routes/users');
 var app = express();
 var port = 3000;
 
-// var mongo = require('mongodb').MongoClient;
-// var url = 'mongodb://localhost:27017/mydb';
-// mongo.connect(url,function(err,res){
-//   if(err)
-//     throw err;
-//   //console.log('mydb is created');
-// });
+var mongo = require('mongodb').MongoClient;
+var url = process.env.MONGO_URI;
+mongo.connect(url,function(err,res){
+  if(err)
+    throw err;
+  //console.log('mydb is created');
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
